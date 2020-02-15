@@ -1,0 +1,8 @@
+shadowsocks=music.desperadoj.com:30003, method=aes-128-gcm, password=desperadoj.com, fast-open=false, udp-relay=false, tag=Unblock Netease Music
+
+shadowsocks=m2.jiaowoy.top:9521, method=rc4-md5, password=jiaowoz, fast-open=false, udp-relay=false,server_check_url=http://music.163.com, tag=jiaowoy 网易云音乐
+
+http=111.67.197.245:10086, username=网易云音乐, password=pwd, over-tls=false, fast-open=false, udp-relay=false, tag=网易云音乐
+
+
+

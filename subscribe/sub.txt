@@ -1,0 +1,9 @@
+#收集的
+;试试
+
+vmess=deguo1.pyjy.xyz:443, method=none, password=c3d2c2d0-922e-3146-ac5f-b203dd49f650, obfs-host=deguo1.pyjy.xyz, obfs=wss, obfs-uri=/video, fast-open=false, udp-relay=false, tag=ceshi
+
+
+vmess=meixi.pyjy.xyz:443, method=none, password=c3d2c2d0-922e-3146-ac5f-b203dd49f650, obfs-host=meixi.pyjy.xyz, obfs=wss, obfs-uri=/video, fast-open=false, udp-relay=false, tag=ceshi1
+
+vmess=meixi2.pyjy.xyz:443, method=none, password=c3d2c2d0-922e-3146-ac5f-b203dd49f650, obfs-host=meixi.pyjy.xyz, obfs=wss, obfs-uri=/video, fast-open=false, udp-relay=false, tag=ceshi2
