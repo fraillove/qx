@@ -1,6 +1,10 @@
 #收集的
 ;试试
 
+shadowsocks=eluosi-c.orzpi.top:31548, method=aes-256-ctr, password=ONg6PB, ssr-protocol=auth_aes128_sha1, ssr-protocol-param=3:TTssd, obfs=tls1.2_ticket_auth, obfs-host=026413.microsoft.com, fast-open=false, udp-relay=false, tag=俄罗斯-C 省点用superbox 机场赞助
+
+shadowsocks=13.76.227.139:31548, method=aes-256-ctr, password=ONg6PB, ssr-protocol=auth_aes128_sha1, ssr-protocol-param=316:3r1cUR, obfs=tls1.2_ticket_auth, obfs-host=6457c316.microsoft.com, fast-open=false, udp-relay=false, tag=新加坡-AZ-不限速superbox赞助
+
 vmess=deguo1.pyjy.xyz:443, method=none, password=c3d2c2d0-922e-3146-ac5f-b203dd49f650, obfs-host=deguo1.pyjy.xyz, obfs=wss, obfs-uri=/video, fast-open=false, udp-relay=false, tag=ceshi
 
 
