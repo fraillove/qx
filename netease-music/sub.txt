@@ -5,4 +5,4 @@ shadowsocks=m2.jiaowoy.top:9521, method=rc4-md5, password=jiaowoz, fast-open=fal
 http=111.67.197.245:10086, username=网易云音乐, password=pwd, over-tls=false, fast-open=false, udp-relay=false, tag=网易云音乐
 
 
-
+shadowsocks=120.55.164.155:18888, method=chacha20-ietf, password=musicli, fast-open=false, udp-relay=false, tag=解锁网易云
