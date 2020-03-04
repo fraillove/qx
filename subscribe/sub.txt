@@ -5,3 +5,18 @@ vmess=deguo1.pyjy.xyz:443, method=none, password=c3d2c2d0-922e-3146-ac5f-b203dd4
 vmess=meixi.pyjy.xyz:443, method=none, password=c3d2c2d0-922e-3146-ac5f-b203dd49f650, obfs-host=meixi.pyjy.xyz, obfs=wss, obfs-uri=/video, fast-open=false, udp-relay=false, tag=ceshi1
 
 vmess=meixi2.pyjy.xyz:443, method=none, password=c3d2c2d0-922e-3146-ac5f-b203dd49f650, obfs-host=meixi.pyjy.xyz, obfs=wss, obfs-uri=/video, fast-open=false, udp-relay=false, tag=ceshi2
+
+
+http=a1.ap.fastqvpn.com:29980, username=285854682104987648, password=a8adb9a14d2c499daf820d743dc8ec14, over-tls=true, tls-verification=true,tls-host=a1.ap.fastqvpn.com, fast-open=false, udp-relay=false, tag=一键连新加坡01
+
+http=a4.ap.fastqvpn.com:29980, username=285857293956808704, password=c81497c432334e28801b5c08dc175cee, over-tls=true, tls-verification=true,tls-host=a4.ap.fastqvpn.com, fast-open=false, udp-relay=false, tag=一键连新加坡02
+
+http=a2.ap.fastqvpn.com:29980, username=285854950691438592, password=e2a625e489c340f89dabdaf52920c3b3, over-tls=true, tls-verification=true,tls-host=a2.ap.fastqvpn.com, fast-open=false, udp-relay=false, tag=一键连日本01
+
+http=a2.ap.fastqvpn.com:29980, username=285856830171643904, password=df13b0fc65414cd58b1faa91e290c1b6, over-tls=true, tls-verification=true,tls-host=a2.ap.fastqvpn.com, fast-open=false, udp-relay=false, tag=一键连日本02
+
+http=a2.ap.fastqvpn.com:29980, username=285203220974796800, password=e705619d91524b2fbd875af44c715a0a, over-tls=true, tls-verification=true, tls-host=, fast-open=false, udp-relay=false, tag=一键连日本03
+
+http=a2.ap.fastqvpn.com:29980, username=285202325256011776, password=5d776c8075e54cd3b9cdd48510d1f020, over-tls=true, tls-verification=true, tls-host=, fast-open=false, udp-relay=false, tag=ba
+
+http=a1.ap.fastqvpn.com:29980, username=285200713594699776, password=2abbbf8f1b024a17b4cd95e1d149e575, over-tls=true, tls-verification=true, tls-host=, fast-open=false, udp-relay=false, tag=aa
