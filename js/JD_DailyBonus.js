@@ -1950,7 +1950,8 @@ function JingDongBaitiao(s){
               }
         })
     })},s)
-
+});
+}
 
 function TotalSteel() {
 
