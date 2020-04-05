@@ -14,7 +14,7 @@ const userInfo = "/v1/user/info";
 
 
 
-if (url.indexOf(vip) != -1) {
+if (url.indexOf(userInfo) != -1) {
   obj.response.level = 1;
   obj.response.verify_phone = 1;
   obj.response.expiry = 9999999999;
