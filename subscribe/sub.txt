@@ -4,7 +4,7 @@ vmess=www.cuso1987.tk:443, method=aes-128-gcm, password= b261dcc0-9ca1-41ab-9514
 
 trojan=fanqiang.cuso1985.tk:8080, password=dp200107050, over-tls=true, tls-verification=true, fast-open=false, udp-relay=false, tag=🇺🇲 搬瓦工洛杉矶（trojan）
 
-vmess = 34.92.171.120:14120, method=chacha20-ietf-poly1305, password=f0c25934-2305-486b-b55b-6a25145290da, fast-open=true, udp-relay=true, tag=HKtest
+vmess=34.92.171.120:14120, method=chacha20-ietf-poly1305, password=f0c25934-2305-486b-b55b-6a25145290da, fast-open=true, udp-relay=true, tag=HKtest
 
 
 vmess=34.84.214.101:39705, method=utp, password=c0aa52f8-19d5-4acb-949e-5947d40a70e7, fast-open=false, udp-relay=true, tag=v2ray 日本
