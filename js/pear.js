@@ -56,6 +56,19 @@ const userScore = "/api/account/UserScore";
 
 const pointExchangeVip = "/api/account/PointExchangeVip";
 
+const videoIndex = "/api/video/index";
+
+
+if (url.indexOf(videoIndex) != -1) {  
+	
+  body=body.replace(/vTag\" : \"1\"/g,'vTag" : "0"');   
+  
+  var obj = JSON.parse(body);
+  body = JSON.stringify(obj);
+}
+
+
+
 if (url.indexOf(movieTorrentInfo) != -1) {
   obj.value = true;
     body = JSON.stringify(obj);
