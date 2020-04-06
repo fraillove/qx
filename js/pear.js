@@ -9,8 +9,6 @@ MITM = m.pearkin.com
 ^https:\/\/m\.pearkin\.com\/(api\/Movie\/WatchMovie|api\/Account\/CheckVip) url script-response-body pear.js
 
 
-^https:\/\/m\.pearkin\.com\/(api/Movie/WatchMovie|api/Account/CheckVip|api/account/IsVip|api/account/IndexDetail|api/Cartoon/LookPhoto|api/PictureSet/LookPhoto|api/download/UserAndDownloadInfo|api/GetCertificateProTips|api/account/UserSetting|api/cartoon/VipInfo|api/account/Milk|api/account/ClosePayAndInvite|api/download/CheckDownloadTorrent) url script-response-body pear.js
-
 
 */
 
@@ -50,10 +48,27 @@ const photoFindMovie = "/api/photoFindMovie/IsAdmin";
 
 const luckyInfo = "/api/luckyInfo/GetLuckyInfoTime";
 
+const openPictureSetFree = "/api/PictureSet/OpenPictureSetFree";
+
+const userScore = "/api/account/UserScore";
+
 if (url.indexOf(photoFindMovie) != -1) {
   obj.isAdmin = true;
     body = JSON.stringify(obj);
 }
+
+if (url.indexOf(userScore) != -1) {
+  obj.value = 8765;
+    body = JSON.stringify(obj);
+}
+
+if (url.indexOf(openPictureSetFree) != -1) {
+  obj.value = true;
+  obj.point = 999;
+    body = JSON.stringify(obj);
+}
+
+
 
 if (url.indexOf(luckyInfo) != -1) {
   obj.isLuckyDay = true;
