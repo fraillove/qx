@@ -44,6 +44,8 @@ const closePayAndInvite = "/api/account/ClosePayAndInvite";
 
 const checkDownloadTorrent = "/api/download/CheckDownloadTorrent";
 
+const movieTorrentInfo = "/api/download/MovieTorrentInfo";
+
 const photoFindMovie = "/api/photoFindMovie/IsAdmin";
 
 const luckyInfo = "/api/luckyInfo/GetLuckyInfoTime";
@@ -53,6 +55,13 @@ const openPictureSetFree = "/api/PictureSet/OpenPictureSetFree";
 const userScore = "/api/account/UserScore";
 
 const pointExchangeVip = "/api/account/PointExchangeVip";
+
+if (url.indexOf(movieTorrentInfo) != -1) {
+  obj.value = true;
+    body = JSON.stringify(obj);
+}
+
+
 
 if (url.indexOf(pointExchangeVip) != -1) {
   obj.result = true;
