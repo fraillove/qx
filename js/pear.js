@@ -52,6 +52,15 @@ const openPictureSetFree = "/api/PictureSet/OpenPictureSetFree";
 
 const userScore = "/api/account/UserScore";
 
+const pointExchangeVip = "/api/account/PointExchangeVip";
+
+if (url.indexOf(pointExchangeVip) != -1) {
+  obj.result = true;
+  obj.message = "成功";
+    body = JSON.stringify(obj);
+}
+
+
 if (url.indexOf(photoFindMovie) != -1) {
   obj.isAdmin = true;
     body = JSON.stringify(obj);
