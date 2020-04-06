@@ -18,7 +18,7 @@ var body = $response.body;
 var url = $request.url;
 var obj = JSON.parse(body);
 
-const vip = "/api/Movie/WatchMovie";
+const vip = "/api/movie/WatchMovie";
 
 const checkVip = "/api/Account/CheckVip";
 
@@ -43,6 +43,14 @@ const accountMilk = "/api/account/Milk";
 const closePayAndInvite = "/api/account/ClosePayAndInvite";
 
 const checkDownloadTorrent = "/api/download/CheckDownloadTorrent";
+
+const photoFindMovie = "/api/photoFindMovie/IsAdmin";
+
+if (url.indexOf(photoFindMovie) != -1) {
+  obj.isAdmin = true;
+    body = JSON.stringify(obj);
+}
+
 
 if (url.indexOf(userAndDownloadInfo) != -1) {
   obj.vipLevel = 3;
