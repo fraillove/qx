@@ -24,6 +24,8 @@ const checkVip = "/api/Account/CheckVip";
 
 const isVip = "/api/account/IsVip";
 
+const isSafeUser = "/api/account/IsSafeUser";
+
 const indexDetail = "/api/account/IndexDetail";
 
 const cartoonPhoto = "/api/Cartoon/LookPhoto/";
@@ -46,10 +48,20 @@ const checkDownloadTorrent = "/api/download/CheckDownloadTorrent";
 
 const photoFindMovie = "/api/photoFindMovie/IsAdmin";
 
+const luckyInfo = "/api/luckyInfo/GetLuckyInfoTime";
+
 if (url.indexOf(photoFindMovie) != -1) {
   obj.isAdmin = true;
     body = JSON.stringify(obj);
 }
+
+if (url.indexOf(luckyInfo) != -1) {
+  obj.isLuckyDay = true;
+  obj.endTime = "2030-03-24"
+    body = JSON.stringify(obj);
+}
+
+
 
 
 if (url.indexOf(userAndDownloadInfo) != -1) {
@@ -123,6 +135,12 @@ if (url.indexOf(isVip) != -1) {
   body = JSON.stringify(obj);
 }
 
+if (url.indexOf(isSafeUser) != -1) {
+  obj.data = 0;
+  obj.value = true;
+  body = JSON.stringify(obj);
+}
+
 if (url.indexOf(indexDetail) != -1) {
   obj.vipEndTime = "2088-03-24";
   obj.vipLevel = 3;
@@ -136,13 +154,13 @@ if (url.indexOf(indexDetail) != -1) {
 
 if (url.indexOf(cartoonPhoto) != -1) {
   obj.value = "true";
-  obj.point = "100";
+  obj.point = "999";
   body = JSON.stringify(obj);
 }
 
 if (url.indexOf(picSetPhoto) != -1) {
   obj.value = "true";
-  obj.point = "100";
+  obj.point = "999";
   body = JSON.stringify(obj);
 }
 
