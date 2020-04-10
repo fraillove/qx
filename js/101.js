@@ -16,7 +16,7 @@ const promoteInfo = "/v1/user/promote/info";
 
 
 if (url.indexOf(userInfo) != -1) {
-  obj.response.level = 1;
+  obj.response.level = 2;
   obj.response.verify_phone = 1;
   obj.response.expiry = 9999999999;
   obj.response.download_limit = 1000;
