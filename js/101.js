@@ -14,6 +14,7 @@ const userInfo = "/v1/user/info";
 
 const promoteInfo = "/v1/user/promote/info";
 
+const announce = "/v1/upgrade/announcement";
 
 if (url.indexOf(userInfo) != -1) {
   obj.response.level = 2;
@@ -30,7 +31,10 @@ if (url.indexOf(promoteInfo) != -1) {
   body = JSON.stringify(obj);
 }
 
-
+if (url.indexOf(announce) != -1) {
+  obj.response = {};
+  body = JSON.stringify(obj);
+}
 
 
 $done({
