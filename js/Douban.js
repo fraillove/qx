@@ -149,7 +149,7 @@ if (!seen) {
         $done({})
     }
 } else {
-    $httpClient.get(`https://api.douban.com/v2/movie/subject/${movieId[1]}?apikey=0df993c66c0c636e29ecbb5344252a4a`, function (error, response, data) {
+     $nobyda.get(`https://api.douban.com/v2/movie/subject/${movieId[1]}?apikey=0df993c66c0c636e29ecbb5344252a4a`, function (error, response, data) {
         let info = JSON.parse(data)
         if (error) {
              $nobyda.notify('获取影片信息失败', error, "");
