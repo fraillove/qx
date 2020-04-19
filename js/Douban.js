@@ -164,7 +164,7 @@ if (!seen) {
             let table = {
                 url: "https://api.airtable.com/v0/BASE_ID/Douban",
                 headers: {
-                    Authorization: "API_KEY"
+                    Authorization: "keyLxYogrzl0QCiD9"
                 },
                 body: {
                     records: [
