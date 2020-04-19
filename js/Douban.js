@@ -166,7 +166,7 @@ if (!seen) {
             }
             let title = info.title + "  " + info.original_title
             let table = {
-                url: "https://api.airtable.com/v0/BASE_ID/Douban",
+                url: "https://api.airtable.com/v0/appwMp7c9RWaYOh7L/Douban",
                 headers: {
                     Authorization: "keyLxYogrzl0QCiD9"
                 },
