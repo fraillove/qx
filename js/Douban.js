@@ -166,34 +166,31 @@ if (!seen) {
             }
             let title = info.title + "  " + info.original_title
             let table = {
-                url: "https://api.airtable.com/v0/appwMp7c9RWaYOh7L/Douban",
-                headers: {
-                    Authorization: "Bearer keyLxYogrzl0QCiD9",
-                    "Content-Type": "application/json"
-                },
-                body: {
-                    records: [
-                        {
-                            "fields": {
-                                "Title": title,
-                                "Description": info.summary,
-                                "Poster": [
-                                    {
-                                        "url": info.images.large
-                                    }
-                                ],
-                                "Seen": seen[1] == 1 ? true : false,
-                                "Actors": casts.replace(/\s\/\s$/, ""),
-                                "Director": directors.replace(/\s\/\s$/, ""),
-                                "Genre": info.genres.toString(),
-                                "Douban": "https://movie.douban.com/subject/" + movieId,
-                                "Rating": info.rating.average,
-                                "Year": info.year
-                            }
-                        }
-                    ]
-                }
-            }
+   url: "https://api.airtable.com/v0/appwMp7c9RWaYOh7L/Douban",
+   headers: {
+     Cookie: cookieVal
+   }
+ };
+ table.headers["Content-Type"] = "application/json;charset=utf-8";
+ table.headers.Authorization = "Bearer keyLxYogrzl0QCiD9";
+ table.body = JSON.stringify({
+   records: [{
+     fields: {
+       Title: title,
+       Description: info.summary,
+       Poster: [{
+         url: info.images.large
+       }],
+       Seen: seen[1] == 1,
+       Actors: casts.replace(/\s\/\s$/, ""),
+       Director: directors.replace(/\s\/\s$/, ""),
+       Genre: info.genres.toString(),
+       Douban: `https://movie.douban.com/subject/${movieId}`,
+       Rating: info.rating.average,
+       Year: info.year
+     }
+   }]
+ });
              $nobyda.log(table);
              $nobyda.post(table, function (error, response, data) {
              $nobyda.log(data);
