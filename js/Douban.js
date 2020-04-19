@@ -169,7 +169,7 @@ if (!seen) {
                 url: "https://api.airtable.com/v0/appwMp7c9RWaYOh7L/Douban",
                 headers: {
                     Authorization: "Bearer keyLxYogrzl0QCiD9",
-                    Content-Type: "application/json"
+                    "Content-Type": "application/json"
                 },
                 body: {
                     records: [
