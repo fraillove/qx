@@ -189,7 +189,7 @@ if (!seen) {
             Douban: `https://movie.douban.com/subject/${movieId[1]}`,
             Rating: info.rating.average,
             Year: info.year,
-            Durations: info.durations,
+            Durations: info.durations.toString(),
             OriginalTitle: info.original_title
           }
         }]
