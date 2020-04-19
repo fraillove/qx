@@ -176,6 +176,7 @@ if (!seen) {
       table.body = JSON.stringify({
         records: [{
           fields: {
+            Name: info.id,
             Title: title,
             Description: info.summary,
             Poster: [{
@@ -185,16 +186,15 @@ if (!seen) {
             Actors: casts.replace(/\s\/\s$/, ""),
             Director: directors.replace(/\s\/\s$/, ""),
             Genre: info.genres.toString(),
-            Douban: `https://movie.douban.com/subject/${movieId}`,
+            Douban: `https://movie.douban.com/subject/${movieId[1]}`,
             Rating: info.rating.average,
-            Year: info.year
+            Year: info.year,
+            Durations: info.durations,
+            OriginalTitle: info.original_title
           }
         }]
       });
-      $nobyda.log(table);
       $nobyda.post(table, (error, response, data) => {
-        $nobyda.log(data);
-        $nobyda.log(response);
         data = JSON.parse(data);
         if (error) {
           $nobyda.notify("收藏失败", error, "");
