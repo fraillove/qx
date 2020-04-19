@@ -3,7 +3,7 @@ Douban Movie Add-ons for Surge by Neurogram
  - 豆瓣电影移动版网页增强
  - 快捷跳转 茶杯狐 搜索
  - 快捷收藏电影至 Airtable
- 
+
 关于作者
 Telegram: Neurogram
 GitHub: Neurogram-R
@@ -20,21 +20,21 @@ http-request ^https://m.douban.com/movie/subject/.+\?seen=\d script-path=Douban.
 收藏功能，需自行修改代码，点击 想看 / 看过 触发收藏
 */
 
-let url = $request.url
-let movieId = url.match(/subject\/(\d+)/)
-let seen = url.match(/\?seen=(\d)$/)
-let collect = true  //收藏功能，默认关闭，需自行配置
+let url = $request.url;
+let movieId = url.match(/subject\/(\d+)/);
+let seen = url.match(/\?seen=(\d)$/);
+let collect = true; //收藏功能，默认关闭，需自行配置
 
 
 var $nobyda = nobyda();
 
 if (!seen) {
-    let body = $response.body
-    let title = body.match(/"sub-title">([^<]+)/)
-    if (title) {
+  let body = $response.body;
+  let title = body.match(/"sub-title">([^<]+)/);
+  if (title) {
 
-        // 茶杯狐 部分引用于 Portal of Douban to Cupfox by Jackeriss (https://greasyfork.org/zh-TW/scripts/30020-%E5%9C%A8%E8%B1%86%E7%93%A3%E7%94%B5%E5%BD%B1%E9%A1%B5%E9%9D%A2%E7%9B%B4%E6%8E%A5%E6%90%9C%E7%B4%A2%E7%94%B5%E5%BD%B1%E8%B5%84%E6%BA%90)
-        let cupfox = `<span class="cupfox"><style>.cupfox{vertical-align: middle;}.cupfox:hover{background: #fff!important;}</style>
+    //茶杯狐 部分引用于 Portal of Douban to Cupfox by Jackeriss (https://greasyfork.org/zh-TW/scripts/30020-%E5%9C%A8%E8%B1%86%E7%93%A3%E7%94%B5%E5%BD%B1%E9%A1%B5%E9%9D%A2%E7%9B%B4%E6%8E%A5%E6%90%9C%E7%B4%A2%E7%94%B5%E5%BD%B1%E8%B5%84%E6%BA%90)
+    let cupfox = `<span class="cupfox"><style>.cupfox{vertical-align: middle;}.cupfox:hover{background: #fff!important;}</style>
     <a href="https://www.cupfox.com/search?key=${title[1]}" class="cupfox" target="_blank">
     <?xml version="1.0" encoding="UTF-8" standalone="no"?>
     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xli
@@ -135,80 +135,81 @@ if (!seen) {
     EdPnC9QkhcLRyY6t/VLsr7X5nedIJWzX9c1F27f98cIvf7Si7qKrc+60mXVJz+bX47WrNuemfWzw
     RrS1YCsRYpP0EmIVvA9b/hvU6OOn4ecO0wAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNy0wNS0yNVQx
     MjowMzoyOSswODowMIsiJJsAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTctMDUtMjVUMTI6MDM6Mjkr
-    MDg6MDD6f5wnAAAAAElFTkSuQmCC"/></svg></a></span>`
+    MDg6MDD6f5wnAAAAAElFTkSuQmCC"/></svg></a></span>`;
 
-        body = body.replace(/("sub-title">.+?)(<\/div>)/, `$1${cupfox}$2`)
+    body = body.replace(/("sub-title">.+?)(<\/div>)/, `$1${cupfox}$2`);
 
-        if (collect) {
-            body = body.replace(/<a.+pbtn.+wish.+>/, `<a href="${url}?seen=0">`)
-            body = body.replace(/<a.+pbtn.+collect.+>/, `<a href="${url}?seen=1">`)
-        }
-
-        $done({ body })
-    } else {
-        $done({})
+    if (collect) {
+      body = body.replace(/<a.+pbtn.+wish.+>/, `<a href="${url}?seen=0">`);
+      body = body.replace(/<a.+pbtn.+collect.+>/, `<a href="${url}?seen=1">`);
     }
-} else {
-     $nobyda.get(`https://api.douban.com/v2/movie/subject/${movieId[1]}?apikey=0df993c66c0c636e29ecbb5344252a4a`, function (error, response, data) {
-        let info = JSON.parse(data)
-        if (error) {
-             $nobyda.notify('获取影片信息失败', error, "");
-        } else if (data.msg == "movie_not_found") {
-             $nobyda.notify('豆瓣电影', data.msg, "");
-        } else {
-            let casts = ""
-            for (var i = 0; i < info.casts.length; i++) {
-                casts = casts + info.casts[i].name + " / "
-            }
-            let directors = ""
-            for (var k = 0; k < info.directors.length; k++) {
-                directors = directors + info.directors[k].name + " / "
-            }
-            let title = info.title + "  " + info.original_title
-            let table = {
-   url: "https://api.airtable.com/v0/appwMp7c9RWaYOh7L/Douban",
-   headers: {
-     Cookie: cookieVal
-   }
- };
- table.headers["Content-Type"] = "application/json;charset=utf-8";
- table.headers.Authorization = "Bearer keyLxYogrzl0QCiD9";
- table.body = JSON.stringify({
-   records: [{
-     fields: {
-       Title: title,
-       Description: info.summary,
-       Poster: [{
-         url: info.images.large
-       }],
-       Seen: seen[1] == 1,
-       Actors: casts.replace(/\s\/\s$/, ""),
-       Director: directors.replace(/\s\/\s$/, ""),
-       Genre: info.genres.toString(),
-       Douban: `https://movie.douban.com/subject/${movieId}`,
-       Rating: info.rating.average,
-       Year: info.year
-     }
-   }]
- });
-             $nobyda.log(table);
-             $nobyda.post(table, function (error, response, data) {
-             $nobyda.log(data);
-             $nobyda.log(response);
-                data = JSON.parse(data)
-                if (error) {
-                     $nobyda.notify('收藏失败', error, "");
-                } else if (data.records) {
-                     $nobyda.notify('豆瓣电影', title + " 收藏成功", "");
-                } else {
-                     $nobyda.notify('收藏失败', data.error.type, data.error.message);
-                }
-            })
-        }
-    })
-    $done({ url: url.replace(/\?seen=\d/, "") })
-}
 
+    $done({
+      body
+    });
+  } else {
+    $done({});
+  }
+} else {
+  $nobyda.get(`https://api.douban.com/v2/movie/subject/${movieId[1]}?apikey=0df993c66c0c636e29ecbb5344252a4a`, (error, response, data) => {
+    let info = JSON.parse(data);
+    if (error) {
+      $nobyda.notify("获取影片信息失败", error, "");
+    } else if (data.msg == "movie_not_found") {
+      $nobyda.notify("豆瓣电影", data.msg, "");
+    } else {
+      let casts = "";
+      for (var i = 0; i < info.casts.length; i++) {
+        casts = `${casts + info.casts[i].name} / `;
+      }
+      let directors = "";
+      for (var k = 0; k < info.directors.length; k++) {
+        directors = `${directors + info.directors[k].name} / `;
+      }
+      let title = `${info.title}  ${info.original_title}`;
+      let table = {
+        url: "https://api.airtable.com/v0/appwMp7c9RWaYOh7L/Douban",
+        headers: {}
+      };
+      table.headers["Content-Type"] = "application/json;charset=utf-8";
+      table.headers.Authorization = "Bearer keyLxYogrzl0QCiD9";
+      table.body = JSON.stringify({
+        records: [{
+          fields: {
+            Title: title,
+            Description: info.summary,
+            Poster: [{
+              url: info.images.large
+            }],
+            Seen: seen[1] == 1,
+            Actors: casts.replace(/\s\/\s$/, ""),
+            Director: directors.replace(/\s\/\s$/, ""),
+            Genre: info.genres.toString(),
+            Douban: `https://movie.douban.com/subject/${movieId}`,
+            Rating: info.rating.average,
+            Year: info.year
+          }
+        }]
+      });
+      $nobyda.log(table);
+      $nobyda.post(table, (error, response, data) => {
+        $nobyda.log(data);
+        $nobyda.log(response);
+        data = JSON.parse(data);
+        if (error) {
+          $nobyda.notify("收藏失败", error, "");
+        } else if (data.records) {
+          $nobyda.notify("豆瓣电影", `${title} 收藏成功`, "");
+        } else {
+          $nobyda.notify("收藏失败", data.error.type, data.error.message);
+        }
+      });
+    }
+  });
+  $done({
+    url: url.replace(/\?seen=\d/, "")
+  });
+}
 
 
 //Modified from yichahucha
@@ -222,7 +223,7 @@ function nobyda() {
     if (isNode) {
       const request = require("request");
       return {
-        request,
+        request
       };
     }
     return null;
@@ -240,7 +241,7 @@ function nobyda() {
     if (isJSBox) {
       $push.schedule({
         title,
-        body: subtitle ? `${subtitle}\n${message}` : message,
+        body: subtitle ? `${subtitle}\n${message}` : message
       });
     }
   };
@@ -274,7 +275,7 @@ function nobyda() {
     if (isQuanX) {
       if (typeof options == "string") {
         options = {
-          url: options,
+          url: options
         };
       }
       options.method = "GET";
@@ -298,11 +299,11 @@ function nobyda() {
     if (isJSBox) {
       if (typeof options == "string") {
         options = {
-          url: options,
+          url: options
         };
       }
       options.header = options.headers;
-      options.handler = function (resp) {
+      options.handler = function(resp) {
         let error = resp.error;
         if (error) {
           error = JSON.stringify(resp.error);
@@ -320,7 +321,7 @@ function nobyda() {
     if (isQuanX) {
       if (typeof options == "string") {
         options = {
-          url: options,
+          url: options
         };
       }
       options.method = "POST";
@@ -344,11 +345,11 @@ function nobyda() {
     if (isJSBox) {
       if (typeof options == "string") {
         options = {
-          url: options,
+          url: options
         };
       }
       options.header = options.headers;
-      options.handler = function (resp) {
+      options.handler = function(resp) {
         let error = resp.error;
         if (error) {
           error = JSON.stringify(resp.error);
@@ -381,6 +382,6 @@ function nobyda() {
     get,
     post,
     log,
-    done,
+    done
   };
 }
