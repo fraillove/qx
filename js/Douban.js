@@ -23,7 +23,7 @@ http-request ^https://m.douban.com/movie/subject/.+\?seen=\d script-path=Douban.
 let url = $request.url
 let movieId = url.match(/subject\/(\d+)/)
 let seen = url.match(/\?seen=(\d)$/)
-let collect = false  //收藏功能，默认关闭，需自行配置
+let collect = true  //收藏功能，默认关闭，需自行配置
 if (!seen) {
     let body = $response.body
     let title = body.match(/"sub-title">([^<]+)/)
