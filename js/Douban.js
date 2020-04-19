@@ -193,7 +193,10 @@ if (!seen) {
                     ]
                 }
             }
+             $nobyda.log(table);
              $nobyda.post(table, function (error, response, data) {
+             $nobyda.log(data);
+             $nobyda.log(response);
                 data = JSON.parse(data)
                 if (error) {
                      $nobyda.notify('收藏失败', error, "");
