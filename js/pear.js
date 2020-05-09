@@ -59,6 +59,29 @@ const pointExchangeVip = "/api/account/PointExchangeVip";
 const videoIndex = "/api/video/index";
 
 
+const version = "/api/VersionIosNewTF";
+
+
+const HomeCustomInfo = "/api/supportAct/HomeCustomInfo";
+
+if (url.indexOf(HomeCustomInfo) != -1) {
+  obj.isAdmin = true;
+  obj.luckyInfoTime.isLuckyDay=true;
+    obj.luckyInfoTime.startTime="2020-05-07";
+  obj.luckyInfoTime.endTime="2021-05-07";
+    body = JSON.stringify(obj);
+}
+
+
+
+if (url.indexOf(version) != -1) {
+  obj.Force = false;
+    body = JSON.stringify(obj);
+}
+
+
+
+
 if (url.indexOf(videoIndex) != -1) {  
 	
   body=body.replace(/vTag\" : \"1\"/g,'vTag" : "0"');   
