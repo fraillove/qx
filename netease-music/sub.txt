@@ -4,7 +4,7 @@ ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpqaWFvd29kY3Q=@m2.jiaowoy.top:11281#%E4%BA%91
 shadowsocks=193.112.121.44:4567, method=aes-256-cfb, password=123456, fast-open=false, udp-relay=false, server_check_url=http://music.163.com, tag=网易云音乐解锁
 http=106.52.127.72:19951, username=name, password=pwd, over-tls=false, fast-open=false, udp-relay=false, tag=🎶NetEaseMusic
 http=music.griouges.cn:39000, fast-open=false, udp-relay=false, tag =🎵 解锁节点3
-
+http=106.52.127.72:19951, fast-open=false, udp-relay=false, tag=🎧 解锁网易云
 
 http=34.92.55.89:8848, fast-open=false, udp-relay=false, tag=🎤 网易云1(google)
 
