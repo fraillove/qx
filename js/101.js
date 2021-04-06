@@ -16,6 +16,18 @@ const promoteInfo = "/v1/user/promote/info";
 
 const announce = "/v1/upgrade/announcement";
 
+const check = "v1/cheakApp";
+
+
+
+if (url.indexOf(check) != -1) {
+  obj.data.appState = 1;
+  obj.data.message= "傻瓜";
+  body = JSON.stringify(obj);
+}
+
+
+
 if (url.indexOf(userInfo) != -1) {
   obj.response.level = 2;
   obj.response.verify_phone = 1;
