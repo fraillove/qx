@@ -1,0 +1,60 @@
+# > 流媒体 emby-nexitally 服务器
+host,emby.nexitally.com,emby
+
+# > 流媒体 emby-paoche 服务器
+host,emby.cjpc.xyz,emby
+host,emby.paoche.ooo,emby
+
+# > 流媒体 emby-flowercloud 服务器
+host,emby.flowercloud.yt,emby
+
+# > 流媒体 emby-maying 服务器
+host,emby.maying.club,emby
+
+# > 流媒体 emby-mdss 服务器
+host,emby.mdss.cloud,emby
+
+# > 流媒体 emby-ytoo 服务器
+host,emby.ytoo.li,emby
+
+# > 流媒体 emby-w8ves 服务器
+host,embyserver.ga,emby
+
+# > 流媒体 emby-prpr 服务器
+host,emby.prprcloud.com,emby
+
+# > 流媒体 emby-nyancat 服务器
+host,emby.nyancat.net,emby
+
+# > 流媒体 emby-Plus 体验服
+host,emby.plusmedia.site,emby
+host,emby-cf.plusmedia.site,emby
+host,emby.xeton.dev,emby
+host,jellyfin.xeton.dev,emby
+host,movie.xeton.dev,emby
+host,servers.xeton.dev,emby
+
+# > 流媒体 emby-Otaku 体验服
+host,emby.ok.edu.hk,emby
+host,emby.neko.edu.rs,emby
+host,pub1.emby.wtf,emby
+host,pub1cf.emby.wtf,emby
+host,pub2.emby.wtf,emby
+host,pub2cf.emby.wtf,emby
+host,pub3.emby.wtf,emby
+host,pub3cf.emby.wtf,emby
+
+# > 流媒体 emby-jmsooo 体验服
+host,agahk1.jmsooo.com,emby
+host,agasg1.jmsooo.com,emby
+host,agajp1.jmsooo.com,emby
+host,aws.jmsooo.com,emby
+host,ntt1.jmsooo.com,emby
+host,hinet.jmsooo.com,emby
+host,cf1.jmsooo.com,emby
+
+# > 流媒体 pornemby 服务器
+host,aga.pornemby.club,emby
+
+# > 流媒体 IMM 服务器
+host,emby.immtel.com,emby
